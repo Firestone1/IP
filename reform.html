@@ -1,0 +1,75 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="./form1.css">
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <form action="http://localhost/Project/copo.html" method="get">
+    <div class="wrapper">
+      <div class="title">
+        Course Detail Form
+      </div>
+      <div class="form">
+        <div class="inputfield">
+          <label>Staff name :</label><input type="text" name="staff_nm"><br><br>
+        </div>
+        <div class="inputfield">
+          <label for="dept">Department:</label>
+          <div class="custom_select">
+            <select name="dept" id="dept">
+              <option value="IT">IT</option>
+              <option value="MECH">MECH</option>
+              <option value="INSTRU">INSTRU</option>
+              <option value="CS">CS</option>
+              <option value="EXTC">EXTC</option>
+              <option value="CIVIL">CIVIL</option>
+              <option value="ASH">ASH</option>
+
+            </select><br><br>
+          </div>
+        </div>
+        <div class="inputfield">
+          <label>Course name:</label><input type="text" name="course_nm"><br><br>
+        </div>
+        <div class="inputfield">
+          <label>Course_code:</label><input type="text" maxlength="8" name="course_cd"><br><br>
+        </div>
+        <h5>Enter your Course Outcome:</h5>
+        <div class="inputfield">
+          <label>Co1:</label><input type="text" name="co1"><br><br>
+        </div>
+        <div class="inputfield">
+          <label>Co2:</label><input type="text" name="co2"><br><br>
+        </div>
+        <div class="inputfield">
+          <label>Co3:</label><input type="text" name="co3"><br><br>
+        </div>
+        <div class="inputfield">
+          <label>Co4:</label><input type="text" name="co4"><br><br>
+        </div>
+
+        <div class="inputfield">
+          <label for="cay">Choose Current Academic Year:</label>
+          <div class="custom_select">
+            <select name="cay" id="cay">
+              <option value="17-18">2017-18</option>
+              <option value="18-19">2018-19</option>
+              <option value="19-20">2019-20</option>
+              <option value="20-21">2020-21</option>
+              <option value="21-22">2021-22</option>
+              <option value="22-23">2022-23</option>
+              <option value="23-24">2023-24</option>
+            </select>
+          </div>
+        </div>
+        <div class="inputfield">
+          <input type="submit" value="Submit" class="btn">
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>
