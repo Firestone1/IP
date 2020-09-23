@@ -12,12 +12,12 @@
       </div>
       <div class="form">
         <div class="inputfield">
-          <label>Staff name :</label><input type="text" id="staff_nm" name="staff_nm"><br><br>
+          <label>Staff name :</label><input type="text" id="staff_nm" name="staff_nm" required><br><br>
         </div>
         <div class="inputfield">
           <label for="dept">Department:</label>
           <div class="custom_select">
-            <select name="dept" id="dept">
+            <select name="dept" id="dept" required>
               <option value="IT">IT</option>
               <option value="MECH">MECH</option>
               <option value="INSTRU">INSTRU</option>
@@ -31,7 +31,7 @@
         <div class="inputfield">
           <label for="sem">Semester of course:</label>
         <div class="custom_select">
-            <select name="sem" id="sem">
+            <select name="sem" id="sem" required>
               <option value="1">I</option>
               <option value="2">II</option>
               <option value="3">III</option>
@@ -47,7 +47,7 @@
           <label>Course name:</label><input type="text" id="course_nm" name="course_nm"><br><br>
         </div>
         <div class="inputfield">
-          <label>Course_code:</label><input type="text" maxlength="8"  id="course_cd" name="course_cd"><br><br>
+          <label>Course_code:</label><input type="text" maxlength="8"  id="course_cd" name="course_cd" required><br><br>
         </div>
         <h5>Enter your Course Outcome:</h5>
         <div class="inputfield">
@@ -61,6 +61,17 @@
         </div>
         <div class="inputfield">
           <label>Co4:</label><input type="text" id="co4" name="co4"><br><br>
+        </div>
+        <div class="inputfield">
+          <label for="cay">Academic Year:</label>
+        <div class="custom_select">
+            <select name="cay" id="cay" required>
+              <option value="17">17-18</option>
+              <option value="18">18-19</option>
+              <option value="19">19-20</option>
+              <option value="20">20-21</option>
+             </select><br><br>
+          </div>
         </div>
        
         <div class="inputfield">

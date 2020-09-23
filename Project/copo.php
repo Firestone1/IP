@@ -3,13 +3,14 @@
 <head>
    <link rel="stylesheet" type="text/css" href="stylesheet.css"> 
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
-   <script src='base.js'></script>
+   
 </head>
 <?php
     include 'conn.php';
     
     $staff_nm=$_GET["staff_nm"];
    $dept=$_GET["dept"];
+   $cay=$_GET["cay"];
    $course_nm=$_GET["course_mn"];
    $course_cd=$_GET["course_cd"];
    $sem=$_GET["sem"];
@@ -17,9 +18,10 @@
    $co2=$_GET["co2"];
    $co3=$_GET["co3"];
    $co4=$_GET["co4"];
+   $uid=$course_cd.$cay;
    
     
-    $query="insert into test (staff_nm,dept,sem,course_nm,course_cd,co1,co2,co3,co4) values ('$staff_nm','$dept','$sem','$course_nm','$course_cd','$co1','$co2','$co3','$co4');";
+    $query="insert into test (uid,staff_nm,dept,sem,cay,course_nm,course_cd,co1,co2,co3,co4) values ('$uid','$staff_nm','$dept','$sem','$cay','$course_nm','$course_cd','$co1','$co2','$co3','$co4');";
     
     $result=mysqli_query($conn,$query);
     if(!$result){
@@ -135,9 +137,11 @@
         </tr>
       </table>
       <button type='submit' class="w3-button w3-round w3-border">Submit</button>
+      <input type='hidden' name='staff_nm' value=<?php echo '"'.$staff_nm.'"';?>>
+      <input type='hidden' name='cay' value=<?php echo $cay;?>>
       <input type='hidden' name='sem' value=<?php echo $sem;?>>
       <input type='hidden' name='dept' value=<?php echo $dept;?>>
-      <input type="hidden" name='course_cd' value=<?php echo $course_cd?>>
+      <input type="hidden" name='course_cd' value=<?php echo $course_cd;?>>
       </form>
       <h2 class="w3-teal">Program Outcomes (POs):</h2>
       <div class="w3-container">
@@ -160,6 +164,36 @@
       </div>
       <h2 class="w3-teal">Program Specific Outcome (PSOs):</h2>
       <div id="pso" class="w3-container">
+        <?php 
+        $dept=$_GET["dept"];
+        if($dept=="MECH"){
+                $dept="1. Graduates will exhibit the ability to analyze and solve problems in Design, Thermal, Manufacturing and Renewable energy domains.<br>2. Graduates will incorporate technical and professional skills in their career.";
+
+        }else if($dept=="IT"){
+          $dept="1. Apply and implement IT solutions in allied fields of engineering to solve real word problems.<br>2. Identify social and industrial problems, provide creative solutions and become quality asset for society and industry.<br>3. Deploy secured solution using Information Technology practices and strategies.";
+
+        }else if($dept=="EXTC"){
+          $dept="1. To apply the knowledge of Electronics and Communication to analyse, design and implement application specific problems with modern tools.<br>2. Adapt emerging technologies with continuous learning in the field of electronics and telecommunication engineering with appropriate solutions to real life problems.";
+
+        }else if($dept=="CS"){
+          $dept="1. Analyze problems and design applications of database, networking, security, web technology, cloud computing, machine learning using mathematical skills and computational tools<br>2. Develop computer-based systems to provide solutions for organizational, societal  problems by working in multidisciplinary teams and pursue a career in IT industry ";
+
+
+        }
+        else if($dept=="INSTRU"){
+          $dept="1. Apply fundamentals of applied sciences, engineering mathematics, electrical, electronics, measurements and control to work as a successful professional in automation as well as interdisciplinary fields.<br>2. Demonstrate professional ethics and standards, effective communication skills and team work to solve real-world problems.";
+
+
+        }
+        else if($dept=="CIVIL"){
+            $dept="1. Proficiency in Civil Engineering: Apply knowledge of mathematics and physical science with higher proficiency in the core areas of civil engineering fields.<br>2. Analytical and Executive Skill: Develop a plan, drawings, analyze, design, write specification, prepare cost estimates and perform all kinds of civil engineering activities.<br>3. Application of Technology at the frontiers of knowledge: Encourage for the application of modern engineering tools and multidisciplinary concept to solve civil engineering problems and research.<br>4. Responsibility: Provide sustainable solutions to complex civil engineering problems for the development of nation and society.";
+
+
+          }else{
+            $dept="";
+          }
+          echo $dept;
+        ?>
      
           <br>
       </div>

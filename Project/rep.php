@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html charset="UTF-8">
 <head>
-  <link rel="stylesheet" type="text/css" href="stylesheet.css"> 
+  <link rel="stylesheet" type="text/css" href="form1.css"> 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 	
 	
@@ -10,33 +10,77 @@
 <?php
     include "conn.php";
     $dept=$_GET["dept"];
+    $cay=$_GET['cay'];
+    $staff_nm=$_GET["staff_nm"];
+    $course_cd=$_GET["course_cd"];
+    $arr=array("dept"=>$dept,'cay'=>$cay,'staff_nm'=>$staff_nm,'course_cd'=>$course_cd);
+    $arr=array_filter($arr);
+    $a=array_keys($arr);
+    $arr=array_values($arr);
+
+    if(count($arr)==1){
+      
+      $query="select * from copo where $a[0]='$arr[0]';";
     
 
-    $query="select * from copo where dept='$dept';";
+    }
+    if(count($arr)==2){
+      $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]';";
+   
+
+    }
+    if(count($arr)==3){
+      $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]' and $a[2]='$arr[2]';";
+    
+
+    }
+    if(count($arr)==4){
+      $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]' and $a[2]='$arr[2]' and $a[3]='$arr[3]';";
+    
+    }
+
+    //$query="select * from copo where '$a[0]'='$arr[0]';";
     $result=mysqli_query($conn,$query);
     if(!$result){
-     echo "failed";
+     header("Location: http://localhost/Project/reports.html");
     }
-   
+    $row = mysqli_fetch_array($result);
+    if(empty($row)){
+      echo '
+<div class="container">
+  <div class="left-section">
+    <div class="wrapper">
+      <h1 class="title">404</h1>
+      <p class="">Looks like the page you were looking for is no longer here.</p>
+    </div>
+  </div>
+  </div>
+  ';
+    }
     
     while($row = mysqli_fetch_array($result)){
-       $po1=unserialize($row[2]);
-       $po2=unserialize($row[3]);
-       $po3=unserialize($row[4]);
-       $po4=unserialize($row[5]);
-       $po5=unserialize($row[6]);
-       $po6=unserialize($row[7]);
-       $po7=unserialize($row[8]);
-       $po8=unserialize($row[9]);
-       $po9=unserialize($row[10]);
-       $po10=unserialize($row[11]);
-       $po11=unserialize($row[12]);
-       $po12=unserialize($row[13]);
-       $pso1=unserialize($row[14]);
-       $pso2=unserialize($row[15]);
-       $pso3=unserialize($row[16]);
-       $pso4=unserialize($row[17]);
-       $course=$row[0];
+
+ 
+       $po1=unserialize($row[7]);
+       $po2=unserialize($row[8]);
+       $po3=unserialize($row[9]);
+       $po4=unserialize($row[10]);
+       $po5=unserialize($row[11]);
+       $po6=unserialize($row[12]);
+       $po7=unserialize($row[13]);
+       $po8=unserialize($row[14]);
+       $po9=unserialize($row[15]);
+       $po10=unserialize($row[16]);
+       $po11=unserialize($row[17]);
+       $po12=unserialize($row[18]);
+       $pso1=unserialize($row[19]);
+       $pso2=unserialize($row[20]);
+       $pso3=unserialize($row[21]);
+       $pso4=unserialize($row[22]);
+       $course=$row[1];
+       $year=$row[5];
+       $year1=$year+1;
+       $staff=$row[2];
        $a1=array_sum($po1)/4;
        $a2=array_sum($po2)/4;
        $a3=array_sum($po3)/4;
@@ -54,7 +98,9 @@
        $a15=array_sum($pso3)/4;
        $a16=array_sum($pso4)/4;
       echo '
-      <h2>'.$course.'</h2>
+      <h2>'.$course.':</h2>
+      <pre>      staff name:'.$staff.'</pre>
+      <pre>      year:20'.$year.'-'.'20'.$year1.'</pre>
       <table border="1">
         <tr>
           <th></th>
@@ -179,8 +225,8 @@
       ';
      }
 
+   
     
-
   
   
     
