@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <meta charset="UTF-8"> 
 <head>
-   <link rel="stylesheet" type="text/css" href="stylesheet.css"> 
+   <link rel="stylesheet" href="stylesheet.css"> 
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
    
 </head>
 <?php
     include 'conn.php';
     
-    $staff_nm=$_GET["staff_nm"];
-   $dept=$_GET["dept"];
-   $cay=$_GET["cay"];
-   $course_nm=$_GET["course_mn"];
-   $course_cd=$_GET["course_cd"];
-   $sem=$_GET["sem"];
-   $co1=$_GET["co1"];
-   $co2=$_GET["co2"];
-   $co3=$_GET["co3"];
-   $co4=$_GET["co4"];
+    $staff_nm=htmlspecialchars($_POST["staff_nm"]);
+   $dept=htmlspecialchars($_POST["dept"]);
+   $cay=htmlspecialchars($_POST["cay"]);
+   $course_nm=htmlspecialchars($_POST["course_mn"]);
+   $course_cd=htmlspecialchars($_POST["course_cd"]);
+   $sem=htmlspecialchars($_POST["sem"]);
+   $co1=htmlspecialchars($_POST["co1"]);
+   $co2=htmlspecialchars($_POST["co2"]);
+   $co3=htmlspecialchars($_POST["co3"]);
+   $co4=htmlspecialchars($_POST["co4"]);
    $uid=$course_cd.$cay;
    
     
@@ -25,17 +25,20 @@
     
     $result=mysqli_query($conn,$query);
     if(!$result){
-      header("Location: http://localhost/Project/form.html");
+     header("Location: http://localhost/Project/form.php");
     }
     
 
 
 ?>
 <html>
+   <h3 class="w3-bar w3-teal">
+           <button onclick="document.getElementById('m1').style.display='block'" class="w3-button w3-dark-grey w3-right">Instructions</button>  
 
-    <form method="post" action="entry.php">
+</h3><br>
+    <form id="form" method="post" action="entry.php">
 
-    <table border='1'>
+    <table class='w3-center w3-striped' border='1'>
         <tr>
           <th></th>
           <th>po1</th>
@@ -137,16 +140,31 @@
         </tr>
       </table>
       <button type='submit' class="w3-button w3-round w3-border">Submit</button>
+      
       <input type='hidden' name='staff_nm' value=<?php echo '"'.$staff_nm.'"';?>>
       <input type='hidden' name='cay' value=<?php echo $cay;?>>
       <input type='hidden' name='sem' value=<?php echo $sem;?>>
       <input type='hidden' name='dept' value=<?php echo $dept;?>>
       <input type="hidden" name='course_cd' value=<?php echo $course_cd;?>>
       </form>
+     
+      <div id="m1" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+              
+              <header class="w3-container w3-red"><pre> Instructions :</pre></header>
+                  <span onclick="document.getElementById('m1').style.display='none'" class="w3-red w3-button w3-display-topright">x</span>
+        <ul>
+                  <li>Enter the marks according to course and academic year chosen in the previous form.</li>
+                  <li>Marks should range from 0-3.</li>
+                  <li>PO and PSO is provided for mapping with CO.</li>
+                  <li>fill only upto PSO provided for your department.</li><br>
+        </ul>
+        </div>
+      </div>
       <h2 class="w3-teal">Program Outcomes (POs):</h2>
       <div class="w3-container">
           <ol>
-              <li>Engineering knowledge: Apply the knowledge of mathematics, science, engineering fundamentals, and an engineering specialization to the solution of complex engineering problems.</li>
+              <li>Engineering knowledge: Apply the knowledge of mathematics, science, engineering fundamentals, and an engineerng to the solution of complex engineering problems.</li>
               <li>Problem analysis: identify, formulate, review research literature, and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences, and engineering sciences.</li>
               <li>Design/development of solutions: Design solutions for complex engineering problems and design system components or processes that meet the specified needs with appropriate consideration for the public health and safety, and the cultural, societal, and environmental considerations.</li>
               <li>Conduct investigations of complex problems: Use research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of the information to provide valid conclusions.</li>
@@ -165,7 +183,7 @@
       <h2 class="w3-teal">Program Specific Outcome (PSOs):</h2>
       <div id="pso" class="w3-container">
         <?php 
-        $dept=$_GET["dept"];
+        $dept=htmlspecialchars($_POST["dept"]);
         if($dept=="MECH"){
                 $dept="1. Graduates will exhibit the ability to analyze and solve problems in Design, Thermal, Manufacturing and Renewable energy domains.<br>2. Graduates will incorporate technical and professional skills in their career.";
 
@@ -197,4 +215,12 @@
      
           <br>
       </div>
+
+
+
+
+
+
+
+
 </html>

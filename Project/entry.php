@@ -1,12 +1,21 @@
 <html>
+<head>
+    <link rel="stylesheet" href="./form1.css">
+</head>
 <body>
   <?php
     include 'conn.php';
-    $course_cd=$_POST['course_cd'];
-    $dept=$_POST['dept'];
-    $sem=$_POST['sem'];
-    $staff_nm=$_POST['staff_nm'];
-    $cay=$_POST['cay'];
+
+
+
+
+
+
+    $course_cd=htmlspecialchars($_POST['course_cd']);
+    $dept=htmlspecialchars($_POST['dept']);
+    $sem=htmlspecialchars($_POST['sem']);
+    $staff_nm=htmlspecialchars($_POST['staff_nm']);
+    $cay=htmlspecialchars($_POST['cay']);
     $po1=serialize($_POST['po1']);
     $po2=serialize($_POST['po2']);
     $po3=serialize($_POST['po3']);
@@ -31,19 +40,28 @@
     $entry=mysqli_query($conn,$query);
 
 
+  
+
+
     
-    if(!entry){
+   if(!entry){
              echo 'Could not enter data: ';
-          }
-    else{     
-          echo "Entered data successfully\n";
+         }
+    else{ 
+
+       
+          header("Location: https://vcet.edu.in");
           
-        } 
+       } 
 
     
 
 
 ?>
-
+'<div class="wrapper"> 
+        <div class="title">Successful!</div>
+        <p>co-po mapping entries were successfully stored</p>
+    </div>'; 
+  
 </body>
 </html>

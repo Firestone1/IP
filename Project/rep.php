@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html charset="UTF-8">
 <head>
-  <link rel="stylesheet" type="text/css" href="form1.css"> 
+  <link rel="stylesheet" href="stylesheet.css"> 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 	
 	
 </head>
 <body>
+<h3 class="w3-bar">
+  <a href="http://localhost/Project/reports.php" class="w3-bar-item w3-button w3-right">reports</a> 
+  <a href="http://localhost/Project/form.php" class="w3-bar-item w3-button w3-right">co-po</a>
+
+</h3><br>
 <?php
     include "conn.php";
+
     $dept=$_GET["dept"];
     $cay=$_GET['cay'];
     $staff_nm=$_GET["staff_nm"];
@@ -39,25 +45,11 @@
     
     }
 
-    //$query="select * from copo where '$a[0]'='$arr[0]';";
     $result=mysqli_query($conn,$query);
     if(!$result){
-     header("Location: http://localhost/Project/reports.html");
+     header("Location: http://localhost/Project/reports.php");
     }
-    $row = mysqli_fetch_array($result);
-    if(empty($row)){
-      echo '
-<div class="container">
-  <div class="left-section">
-    <div class="wrapper">
-      <h1 class="title">404</h1>
-      <p class="">Looks like the page you were looking for is no longer here.</p>
-    </div>
-  </div>
-  </div>
-  ';
-    }
-    
+     
     while($row = mysqli_fetch_array($result)){
 
  
@@ -98,10 +90,16 @@
        $a15=array_sum($pso3)/4;
        $a16=array_sum($pso4)/4;
       echo '
-      <h2>'.$course.':</h2>
+      
+      <div class="w3-card w3-third w3-pale-green">
+      <div class="w3-class">
+      <h2> course code : '.$course.'</h2>
       <pre>      staff name:'.$staff.'</pre>
       <pre>      year:20'.$year.'-'.'20'.$year1.'</pre>
-      <table border="1">
+      </div>
+      </div><br><br>
+      
+      <table class="w3-striped" border="1">
         <tr>
           <th></th>
           <th>po1</th>
@@ -222,9 +220,14 @@
 
         </tr>
       </table><br><br>
+      
       ';
      }
-
+     $row = mysqli_fetch_array($result);
+    if(empty($row)){
+      header("Location: http://localhost/Project/reports.php");
+    }
+    
    
     
   
