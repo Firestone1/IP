@@ -3,6 +3,8 @@
 <head>
   <link rel="stylesheet" href="./form1.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
@@ -18,22 +20,27 @@
       </div>
       <div class="form">
         <div class="inputfield">
-          <label>Staff name :</label><input type="text" id="staff_nm" name="staff_nm" required><br><br>
-        </div>
-        <div class="inputfield">
           <label for="dept">Department:</label>
           <div class="custom_select">
-            <select name="dept" id="dept" required>
+            <select name="dept" id="dept" oninput="load_staff(dept.value)"required>
               <option value="none" selected disabled>--</option>
               <option value="MECH">Mechanical Engineering</option>
               <option value="EXTC">Electronics and Telecommunications Enginnering</option>
               <option value="INSTRU">Instrumentation Engineering</option>
               <option value="CS">Computer Engineering</option>
-              <option value="EXTC">Information Technology</option>
+              <option value="IT">Information Technology</option>
               <option value="CIVIL">Civil Engineering</option>
               <option value="ASH">Applied Science & Humanities</option>
             </select><br><br>
           </div>
+        </div>
+        <div class="inputfield">
+          <label>Staff name :</label>
+          <div class="custom_select">
+          <select id="staff_nm" name="staff_nm" required>
+            <option value="none" selected disabled>--</option>
+          </select>
+        </div>
         </div>
         <div class="inputfield">
           <label for="sem">Semester of course:</label>
@@ -55,7 +62,7 @@
           <label>Course name:</label><input type="text" id="course_nm" name="course_nm"><br><br>
         </div>
         <div class="inputfield">
-          <label>Course_code:</label><input type="text" maxlength="8"  id="course_cd" name="course_cd" required><br><br>
+          <label>Course code:</label><input type="text" maxlength="8"  id="course_cd" name="course_cd" required><br><br>
         </div>
         <h5>Enter your Course Outcome:</h5>
         <div class="inputfield">
@@ -113,5 +120,17 @@
       
     
 </body>
+<script>
+  function load_staff(s){
+    var x = new XMLHttpRequest();
+    x.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status==200){
+        document.getElementById("staff_nm").innerHTML=this.responseText;
+      }
+    };
+    x.open("GET",`staff/${s}.txt`,true);
+    x.send();
+  }
+</script>
 
 </html>
