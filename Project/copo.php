@@ -3,6 +3,7 @@
 <head>
    <link rel="stylesheet" href="stylesheet.css"> 
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
    
 </head>
 <?php
@@ -11,21 +12,25 @@
     $staff_nm=htmlspecialchars($_POST["staff_nm"]);
    $dept=htmlspecialchars($_POST["dept"]);
    $cay=htmlspecialchars($_POST["cay"]);
-   $course_nm=htmlspecialchars($_POST["course_mn"]);
+   $course_nm=htmlspecialchars($_POST["course_nm"]);
    $course_cd=htmlspecialchars($_POST["course_cd"]);
    $sem=htmlspecialchars($_POST["sem"]);
    $co1=htmlspecialchars($_POST["co1"]);
    $co2=htmlspecialchars($_POST["co2"]);
    $co3=htmlspecialchars($_POST["co3"]);
    $co4=htmlspecialchars($_POST["co4"]);
+   $b1=htmlspecialchars($_POST["b1"]);
+   $b2=htmlspecialchars($_POST["b2"]);
+   $b3=htmlspecialchars($_POST["b3"]);
+   $b4=htmlspecialchars($_POST["b4"]);
    $uid=$course_cd.$cay;
    
     
-    $query="insert into test (uid,staff_nm,dept,sem,cay,course_nm,course_cd,co1,co2,co3,co4) values ('$uid','$staff_nm','$dept','$sem','$cay','$course_nm','$course_cd','$co1','$co2','$co3','$co4');";
+    $query="insert into test (uid,staff_nm,dept,sem,cay,course_nm,course_cd,co1,co2,co3,co4,b1,b2,b3,b4) values ('$uid','$staff_nm','$dept','$sem','$cay','$course_nm','$course_cd','$co1','$co2','$co3','$co4','$b1','$b2','$b3','$b4');";
     
     $result=mysqli_query($conn,$query);
     if(!$result){
-     header("Location: http://localhost/Project/form.php");
+    header("Location: http://localhost/Project/form.php");
     }
     
 
@@ -37,8 +42,8 @@
 
 </h3><br>
     <form id="form" method="post" action="entry.php">
-
-    <table class='w3-center w3-striped' border='1'>
+    <div class=w3-responsive>
+    <table class='w3-center w3-striped copo' border='1'>
         <tr>
           <th></th>
           <th>po1</th>
@@ -61,86 +66,87 @@
         
         <tr>
             <th>co1</th>
-            <td><input type="text" name='po1[]' value=""/></td>
-            <td><input type="text" name='po2[]' value=""/></td>
-            <td><input type="text" name='po3[]' value=""/></td>
-            <td><input type="text" name='po4[]' value=""/></td>
-            <td><input type="text" name='po5[]' value=""/></td>
-            <td><input type="text" name="po6[]" value=""/></td>
-            <td><input type="text" name='po7[]' value=""/></td>
-            <td><input type="text" name='po8[]' value=""/></td>
-            <td><input type="text" name="po9[]" value=""/></td>
-            <td><input type="text" name="po10[]" value=""/></td>
-            <td><input type="text" name="po11[]" value=""/></td>
-            <td><input type="text" name="po12[]" value=""/></td>
-            <td><input type="text" name="pso1[]" value=""/></td>
-            <td><input type="text" name="pso2[]" value=""/></td>
-            <td><input type="text" name="pso3[]" value=""/></td>
-            <td><input type="text" name="pso4[]" value=""/></td>
+            <td><input type="text" name='po1[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po2[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po3[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po4[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po5[]' maxlength='1' value=""/></td>
+            <td><input type="text" name="po6[]" maxlength='1' value=""/></td>
+            <td><input type="text" name='po7[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po8[]' maxlength='1' value=""/></td>
+            <td><input type="text" name="po9[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po10[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po11[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po12[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso1[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso2[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso3[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso4[]" maxlength='1' value=""/></td>
 
           
             
         </tr>
         <tr>
             <th>co2</th>
-            <td><input type="text" name='po1[]' value=""/></td>
-            <td><input type="text" name='po2[]' value=""/></td>
-            <td><input type="text" name='po3[]' value=""/></td>
-            <td><input type="text" name='po4[]' value=""/></td>
-            <td><input type="text" name='po5[]' value=""/></td>
-            <td><input type="text" name="po6[]" value=""/></td>
-            <td><input type="text" name='po7[]' value=""/></td>
-            <td><input type="text" name='po8[]' value=""/></td>
-            <td><input type="text" name="po9[]" value=""/></td>
-            <td><input type="text" name="po10[]" value=""/></td>
-            <td><input type="text" name="po11[]" value=""/></td>
-            <td><input type="text" name="po12[]" value=""/></td>
-            <td><input type="text" name="pso1[]" value=""/></td>
-            <td><input type="text" name="pso2[]" value=""/></td>
-            <td><input type="text" name="pso3[]" value=""/></td>
-            <td><input type="text" name="pso4[]" value=""/></td>
+            <td><input type="text" name='po1[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po2[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po3[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po4[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po5[]' maxlength='1' value=""/></td>
+            <td><input type="text" name="po6[]" maxlength='1' value=""/></td>
+            <td><input type="text" name='po7[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po8[]' maxlength='1' value=""/></td>
+            <td><input type="text" name="po9[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po10[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po11[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po12[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso1[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso2[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso3[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso4[]" maxlength='1' value=""/></td>
         </tr>
         <tr>
             <th id="co3">co3</th>
-            <td><input type="text" name='po1[]' value=""/></td>
-            <td><input type="text" name='po2[]' value=""/></td>
-            <td><input type="text" name='po3[]' value=""/></td>
-            <td><input type="text" name='po4[]' value=""/></td>
-            <td><input type="text" name='po5[]' value=""/></td>
-            <td><input type="text" name="po6[]" value=""/></td>
-            <td><input type="text" name='po7[]' value=""/></td>
-            <td><input type="text" name='po8[]' value=""/></td>
-            <td><input type="text" name="po9[]" value=""/></td>
-            <td><input type="text" name="po10[]" value=""/></td>
-            <td><input type="text" name="po11[]" value=""/></td>
-            <td><input type="text" name="po12[]" value=""/></td>
-            <td><input type="text" name="pso1[]" value=""/></td>
-            <td><input type="text" name="pso2[]" value=""/></td>
-            <td><input type="text" name="pso3[]" value=""/></td>
-            <td><input type="text" name="pso4[]" value=""/></td>
+            <td><input type="text" name='po1[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po2[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po3[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po4[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po5[]' maxlength='1' value=""/></td>
+            <td><input type="text" name="po6[]" maxlength='1' value=""/></td>
+            <td><input type="text" name='po7[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po8[]' maxlength='1' value=""/></td>
+            <td><input type="text" name="po9[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po10[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po11[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po12[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso1[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso2[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso3[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso4[]" maxlength='1' value=""/></td>
         </tr>
         <tr>
             <th id="co4" value='co4'>co4</th>
-            <td><input type="text" name='po1[]' value=""/></td>
-            <td><input type="text" name='po2[]' value=""/></td>
-            <td><input type="text" name='po3[]' value=""/></td>
-            <td><input type="text" name='po4[]' value=""/></td>
-            <td><input type="text" name='po5[]' value=""/></td>
-            <td><input type="text" name="po6[]" value=""/></td>
-            <td><input type="text" name='po7[]' value=""/></td>
-            <td><input type="text" name='po8[]' value=""/></td>
-            <td><input type="text" name="po9[]" value=""/></td>
-            <td><input type="text" name="po10[]" value=""/></td>
-            <td><input type="text" name="po11[]" value=""/></td>
-            <td><input type="text" name="po12[]" value=""/></td>
-            <td><input type="text" name="pso1[]" value=""/></td>
-            <td><input type="text" name="pso2[]" value=""/></td>
-            <td><input type="text" name="pso3[]" value=""/></td>
-            <td><input type="text" name="pso4[]" value=""/></td>
+            <td><input type="text" name='po1[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po2[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po3[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po4[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po5[]' maxlength='1' value=""/></td>
+            <td><input type="text" name="po6[]" maxlength='1' value=""/></td>
+            <td><input type="text" name='po7[]' maxlength='1' value=""/></td>
+            <td><input type="text" name='po8[]' maxlength='1' value=""/></td>
+            <td><input type="text" name="po9[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po10[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po11[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="po12[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso1[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso2[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso3[]" maxlength='1' value=""/></td>
+            <td><input type="text" name="pso4[]" maxlength='1' value=""/></td>
         </tr>
       </table>
-      <button type='submit' class="w3-button w3-round w3-border">Submit</button>
-      
+    </div>
+      <button type='submit' class="w3-button w3-round w3-border w3-teal">Justify</button>
+      <input type='hidden' name='course_nm' value=<?php echo '"'.$course_nm.'"';?>>
       <input type='hidden' name='staff_nm' value=<?php echo '"'.$staff_nm.'"';?>>
       <input type='hidden' name='cay' value=<?php echo $cay;?>>
       <input type='hidden' name='sem' value=<?php echo $sem;?>>
@@ -151,8 +157,8 @@
       <div id="m1" class="w3-modal">
         <div class="w3-modal-content w3-animate-zoom">
               
-              <header class="w3-container w3-red"><pre> Instructions :</pre></header>
-                  <span onclick="document.getElementById('m1').style.display='none'" class="w3-red w3-button w3-display-topright">x</span>
+              <header class="w3-container w3-black"><pre> Instructions :</pre></header>
+                  <span onclick="document.getElementById('m1').style.display='none'" class="w3-black w3-button w3-display-topright">x</span>
         <ul>
                   <li>Enter the marks according to course and academic year chosen in the previous form.</li>
                   <li>Marks should range from 0-3.</li>
@@ -161,6 +167,38 @@
         </ul>
         </div>
       </div>
+        
+      <div class="w3-card-4">
+          <table class=w3-table-all>
+          <tr>
+            <td class=t>Course code</td>
+            <td class=t>At the end of the course student will be able to:</td>
+            <td class=t>Bloom Level</td>
+          </tr>
+          <tr>
+            <td><?php echo $course_cd.".1" ?></td>
+            <td><?php echo $co1 ?></td>
+            <td><?php echo $b1 ?></td>
+          </tr>
+          <tr>
+            <td><?php echo $course_cd.".2" ?></td>
+            <td><?php echo $co2 ?></td>
+            <td><?php echo $b2 ?></td>
+          </tr>
+          <tr>
+            <td><?php echo $course_cd.".3" ?></td>
+            <td><?php echo $co3 ?></td>
+            <td><?php echo $b3 ?></td>
+          </tr>
+          <tr>
+            <td><?php echo $course_cd.".4" ?></td>
+            <td><?php echo $co4 ?></td>
+            <td><?php echo $b4 ?></td>
+          </tr>
+        </table>
+   
+      </div><br>
+      <div class=w3-container>
       <h2 class="w3-teal">Program Outcomes (POs):</h2>
       <div class="w3-container">
           <ol>
@@ -180,6 +218,7 @@
           </ol>
 
       </div>
+    </div>
       <h2 class="w3-teal">Program Specific Outcome (PSOs):</h2>
       <div id="pso" class="w3-container">
         <?php 
@@ -218,7 +257,15 @@
 
 
 
+<script>
+  function r(i){
+    var re=/[^0-3]/;
+    var san=i.replace(re,"");
 
+    var san1=san.replace(/[^[\d]{1}]/,"");
+    alert(san1);
+  }
+</script>
 
 
 

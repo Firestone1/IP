@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet" href="stylesheet.css"> 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
-	
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	
 </head>
 <body>
@@ -14,34 +14,34 @@
 </h3><br>
 <?php
     include "conn.php";
-
     $dept=$_GET["dept"];
     $cay=$_GET['cay'];
-    $staff_nm=$_GET["staff_nm"];
+    $staff_nm=urldecode($_GET["staff_nm"]);
     $course_cd=$_GET["course_cd"];
-    $arr=array("dept"=>$dept,'cay'=>$cay,'staff_nm'=>$staff_nm,'course_cd'=>$course_cd);
+    $arr=array("dept"=>$dept,'cay'=>$cay,'course_cd'=>$course_cd,'staff_nm'=>$staff_nm);
     $arr=array_filter($arr);
     $a=array_keys($arr);
     $arr=array_values($arr);
 
+
     if(count($arr)==1){
       
-      $query="select * from copo where $a[0]='$arr[0]';";
+      $query="select * from copo where $a[0]='$arr[0]' order by sem;";
     
 
     }
     if(count($arr)==2){
-      $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]';";
+      $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]' order by sem;";
    
 
     }
     if(count($arr)==3){
-      $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]' and $a[2]='$arr[2]';";
+      $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]' and $a[2]='$arr[2]' order by sem;";
     
 
     }
     if(count($arr)==4){
-      $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]' and $a[2]='$arr[2]' and $a[3]='$arr[3]';";
+      $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]' and $a[2]='$arr[2]' and $a[3]='$arr[3]' order by sem;";
     
     }
 
@@ -50,6 +50,7 @@
      header("Location: http://localhost/Project/reports.php");
     }
      
+     $emp=array();
     while($row = mysqli_fetch_array($result)){
 
  
@@ -70,9 +71,11 @@
        $pso3=unserialize($row[21]);
        $pso4=unserialize($row[22]);
        $course=$row[1];
-       $year=$row[5];
+       $sem=$row[5];
+       $year=$row[6];
        $year1=$year+1;
-       $staff=$row[2];
+       $course_nm=$row[2];
+       $staff=$row[3];
        $a1=array_sum($po1)/4;
        $a2=array_sum($po2)/4;
        $a3=array_sum($po3)/4;
@@ -93,13 +96,15 @@
       
       <div class="w3-card w3-third w3-pale-green">
       <div class="w3-class">
-      <h2> course code : '.$course.'</h2>
-      <pre>      staff name:'.$staff.'</pre>
-      <pre>      year:20'.$year.'-'.'20'.$year1.'</pre>
+      <h2>&nbsp;course code : '.$course.'</h2>
+      <pre>     staff name  : '.$staff.'</pre>
+      <pre>     course name : '.$course_nm.'</pre>
+      <pre>     Sem         : '.$sem.'</pre>
+      <pre>     year        : 20'.$year.'-'.'20'.$year1.'</pre>
       </div>
       </div><br><br>
       
-      <table class="w3-striped" border="1">
+      <table name="tbl" class="copo" border="1">
         <tr>
           <th></th>
           <th>po1</th>
@@ -222,15 +227,14 @@
       </table><br><br>
       
       ';
+      $check=array_push($emp,"1");
      }
-     $row = mysqli_fetch_array($result);
-    if(empty($row)){
-      header("Location: http://localhost/Project/reports.php");
-    }
+   ;
     
-   
-    
-  
+  if(is_null($check)){
+    header("Location: http://localhost/Project/reports.php");
+  }
+
   
     
   ?>

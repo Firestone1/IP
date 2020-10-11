@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" href="./form1.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 <body>
   <body>
@@ -20,8 +21,8 @@
         <div class="inputfield">
           <label for="dept">Department:</label>
           <div class="custom_select">
-            <select name="dept" id="dept">
-              <option></option>
+            <select name="dept" id="dept" oninput="load_staff(dept.value)">
+              <option value=''></option>
               <option value="MECH">Mechanical Engineering</option>
               <option value="EXTC">Electronics and Telecommunications Enginnering</option>
               <option value="INSTRU">Instrumentation Engineering</option>
@@ -34,6 +35,19 @@
           
         </div>
         <div class="inputfield">
+          <label>Course code:</label><input type="text" maxlength="8"  id="course_cd" name="course_cd" value=""><br><br>
+        </div>
+        <div class="inputfield">
+          <label>Staff name :</label>
+
+          <div class="custom_select">
+          <select id="staff_nm" name="staff_nm">
+            
+          </select>
+        </div>
+        </div>
+        
+        <div class="inputfield">
           <label for="cay">Academic Year:</label>
         <div class="custom_select">
             <select name="cay" id="cay">
@@ -45,16 +59,11 @@
              </select><br><br>
           </div>
         </div>
-        <div class="inputfield">
-          <label>Course_code:</label><input type="text" maxlength="8"  id="course_cd" name="course_cd"><br><br>
-        </div>
-        <div class="inputfield">
-          <label>Staff name :</label><input type="text" id="staff_nm" name="staff_nm"><br><br>
-        </div>
-        <div class="inputfield">
+      <div class="inputfield">
           <input type="submit" value="Submit" class="btn">
         </div>
-      </div>
+      </div>  
+        
     </div>
   </form>
 
@@ -74,17 +83,24 @@
           
       }
       
-   
-       
+
     ?>
    </div> 
 
 
 
-
-
-
 </body>
-	
+	<script>
+  function load_staff(s){
+    var x = new XMLHttpRequest();
+    x.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status==200){
+        document.getElementById("staff_nm").innerHTML=this.responseText;
+      }
+    };
+    x.open("GET",`staff/${s}.txt`,true);
+    x.send();
+  }
+</script>
 
 </html>

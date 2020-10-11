@@ -64,19 +64,38 @@
         <div class="inputfield">
           <label>Course code:</label><input type="text" maxlength="8"  id="course_cd" name="course_cd" required><br><br>
         </div>
-        <h5>Enter your Course Outcome:</h5>
-        <div class="inputfield">
-          <label>Co1:</label><input type="text" id="co1" name="co1"><br><br>
-        </div>
-        <div class="inputfield">
-          <label>Co2:</label><input type="text" id="co2" name="co2"><br><br>
-        </div>
-        <div class="inputfield">
-          <label>Co3:</label><input type="text" id="co3" name="co3"><br><br>
-        </div>
-        <div class="inputfield">
-          <label>Co4:</label><input type="text" id="co4" name="co4"><br><br>
-        </div>
+        <h5>Enter your Course Outcome:</h5><br>
+        <div class=w3-responsive>
+        <table class="w3-table-all w3-card-4">
+          <tr>
+            <th></th>
+            <th>Course Outcome</th>
+            <th>Bloom Level</th>
+
+          </tr>
+          <tr>
+            <th>co1</th>
+            <td><input class=co type="text" id="co1" name="co1"></td>
+            <td><input class=bloom type=text id="b1" name="b1"></td>
+
+          </tr>
+          <tr>
+            <th>co2</th>
+            <td><input class=co type="text" id="co2" name="co2"></td>
+            <td><input class=bloom type=text id="b2" name="b2"></td>
+          </tr>
+          <tr>
+            <th>co3</th>
+            <td><input class=co type="text" id="co3" name="co3"></td>
+            <td><input class=bloom type=text id="b3" name="b3"></td>
+          </tr>
+          <tr>
+            <th>co4</th>
+            <td><input class=co type="text" id="co4" name="co4"></td>
+            <td><input class=bloom type=text id="b4" name="b4"></td>
+          </tr>
+        </table>
+      </div><br>
         <div class="inputfield">
           <label for="cay">Academic Year:</label>
         <div class="custom_select">
