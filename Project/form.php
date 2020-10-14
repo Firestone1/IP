@@ -1,6 +1,7 @@
-<html>
+<!DOCTYPE html>
 
 <head>
+  <meta charset="UTF-8"> 
   <link rel="stylesheet" href="./form1.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -12,7 +13,7 @@
   <a href="http://localhost/Project/reports.php" class="w3-bar-item w3-button w3-right">reports</a> 
   <a href="http://localhost/Project/form.php" class="w3-bar-item w3-button w3-right">co-po</a>
 
-</h3><br>
+</h3>
   <form action="http://localhost/Project/copo.php" method="post">
     <div class="wrapper">
       <div class="title">
@@ -70,29 +71,69 @@
           <tr>
             <th></th>
             <th>Course Outcome</th>
-            <th>Bloom Level</th>
+            <th>Bloom Level
+              <input type=button onclick="document.getElementById('m1').style.display='block'" class="w3-button w3-dark-grey w3-right" value="?">
+            </th>
 
           </tr>
           <tr>
             <th>co1</th>
             <td><input class=co type="text" id="co1" name="co1"></td>
-            <td><input class=bloom type=text id="b1" name="b1"></td>
+            <td><div class="custom_select">
+            <select name="b1" id="b1" required>
+              <option value="none" selected disabled>--</option>
+              <option value="Remember">Remember</option>
+              <option value="Understand">Understand</option>
+              <option value="Apply">Apply</option>
+              <option value="Analyze">Analyze</option>
+              <option value="Evaluate">Evaluate</option>
+              <option value="Create">Create</option>
+             
+             </select>
+          </div></td>
 
           </tr>
           <tr>
             <th>co2</th>
             <td><input class=co type="text" id="co2" name="co2"></td>
-            <td><input class=bloom type=text id="b2" name="b2"></td>
+            <td><select name="b2" id="b2" required>
+              <option value="none" selected disabled>--</option>
+              <option value="Remember">Remember</option>
+              <option value="Understand">Understand</option>
+              <option value="Apply">Apply</option>
+              <option value="Analyze">Analyze</option>
+              <option value="Evaluate">Evaluate</option>
+              <option value="Create">Create</option>
+             
+             </select></td>
           </tr>
           <tr>
             <th>co3</th>
             <td><input class=co type="text" id="co3" name="co3"></td>
-            <td><input class=bloom type=text id="b3" name="b3"></td>
+            <td><select name="b3" id="b3" required>
+              <option value="none" selected disabled>--</option>
+              <option value="Remember">Remember</option>
+              <option value="Understand">Understand</option>
+              <option value="Apply">Apply</option>
+              <option value="Analyze">Analyze</option>
+              <option value="Evaluate">Evaluate</option>
+              <option value="Create">Create</option>
+             
+             </select></td>
           </tr>
           <tr>
             <th>co4</th>
             <td><input class=co type="text" id="co4" name="co4"></td>
-            <td><input class=bloom type=text id="b4" name="b4"></td>
+            <td><select name="b4" id="b4" required>
+              <option value="none" selected disabled>--</option>
+              <option value="Remember">Remember</option>
+              <option value="Understand">Understand</option>
+              <option value="Apply">Apply</option>
+              <option value="Analyze">Analyze</option>
+              <option value="Evaluate">Evaluate</option>
+              <option value="Create">Create</option>
+             
+             </select></td>
           </tr>
         </table>
       </div><br>
@@ -137,7 +178,14 @@
     ?>
    </div> 
       
-    
+ <div id="m1" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+              
+              
+                  <span onclick="document.getElementById('m1').style.display='none'" class="w3-black w3-button w3-display-topright">x</span>
+        <img src=bloom.png>
+        </div>
+      </div>   
 </body>
 <script>
   function load_staff(s){

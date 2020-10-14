@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html charset="UTF-8">
 <head>
+  <title>CO-PO-Mapping</title>
   <link rel="stylesheet" href="stylesheet.css"> 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <script src=base.js></script>
 	
 </head>
 <body>
@@ -14,6 +16,8 @@
 </h3><br>
 <?php
     include "conn.php";
+
+
     $dept=$_GET["dept"];
     $cay=$_GET['cay'];
     $staff_nm=urldecode($_GET["staff_nm"]);
@@ -22,25 +26,25 @@
     $arr=array_filter($arr);
     $a=array_keys($arr);
     $arr=array_values($arr);
+    $count=count($arr);
 
-
-    if(count($arr)==1){
+    if($count==1){
       
       $query="select * from copo where $a[0]='$arr[0]' order by sem;";
     
 
     }
-    if(count($arr)==2){
+    else if($count==2){
       $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]' order by sem;";
    
 
     }
-    if(count($arr)==3){
+    else if($count==3){
       $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]' and $a[2]='$arr[2]' order by sem;";
     
 
     }
-    if(count($arr)==4){
+    else{
       $query="select * from copo where $a[0]='$arr[0]' and $a[1]='$arr[1]' and $a[2]='$arr[2]' and $a[3]='$arr[3]' order by sem;";
     
     }
@@ -49,7 +53,8 @@
     if(!$result){
      header("Location: http://localhost/Project/reports.php");
     }
-     
+    mysqli_close($conn);
+
      $emp=array();
     while($row = mysqli_fetch_array($result)){
 
@@ -76,6 +81,7 @@
        $year1=$year+1;
        $course_nm=$row[2];
        $staff=$row[3];
+       $jus=$course.$year;
        $a1=array_sum($po1)/4;
        $a2=array_sum($po2)/4;
        $a3=array_sum($po3)/4;
@@ -93,14 +99,24 @@
        $a15=array_sum($pso3)/4;
        $a16=array_sum($pso4)/4;
       echo '
-      
+      <div class=w3-container>
       <div class="w3-card w3-third w3-pale-green">
-      <div class="w3-class">
+      
+      
+      <button class="w3-button w3-teal w3-right" name='.$jus.' onclick=XaD("'.$jus.'")>Justification</button>
+      
+     
       <h2>&nbsp;course code : '.$course.'</h2>
       <pre>     staff name  : '.$staff.'</pre>
       <pre>     course name : '.$course_nm.'</pre>
       <pre>     Sem         : '.$sem.'</pre>
       <pre>     year        : 20'.$year.'-'.'20'.$year1.'</pre>
+      </div>
+      <div class=w3-card w3-twothird>
+      <div id='.$jus.'>
+
+
+      </div>
       </div>
       </div><br><br>
       
@@ -224,7 +240,8 @@
             <td>'.$a16.'</td>
 
         </tr>
-      </table><br><br>
+      </table>
+      <br><br>
       
       ';
       $check=array_push($emp,"1");
@@ -235,7 +252,16 @@
     header("Location: http://localhost/Project/reports.php");
   }
 
-  
+ 
+
+
+
+
+
+ //Justification:-
+ 
+
+
     
   ?>
 </body>

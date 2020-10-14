@@ -141,3 +141,12 @@ border:2px solid #d5dbd9;
   height:23px;
   border:hidden;
 }
+
+.wrapp{
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    margin: 20px auto;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.125);
+    padding: 30px;
+  }

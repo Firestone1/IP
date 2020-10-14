@@ -32,7 +32,7 @@
     if(!$result){
     header("Location: http://localhost/Project/form.php");
     }
-    
+    mysqli_close($conn);
 
 
 ?>

@@ -5,7 +5,33 @@
 </head>
 <body>
  <?php
-   $p1=$_POST['po1'];
+    include "conn.php";
+
+    $course_cd=htmlspecialchars($_POST['course_cd']);
+    $course_nm=htmlspecialchars($_POST['course_nm']);
+    $dept=htmlspecialchars($_POST['dept']);
+    $sem=htmlspecialchars($_POST['sem']);
+    $staff_nm=htmlspecialchars($_POST['staff_nm']);
+    $cay=htmlspecialchars($_POST['cay']);
+    $po1=serialize($_POST['po1']);
+    $po2=serialize($_POST['po2']);
+    $po3=serialize($_POST['po3']);
+    $po4=serialize($_POST['po4']);
+    $po5=serialize($_POST['po5']);
+    $po6=serialize($_POST['po6']);
+    $po7=serialize($_POST['po7']);
+    $po8=serialize($_POST['po8']);
+    $po9=serialize($_POST['po9']);
+    $po10=serialize($_POST['po10']);
+    $po11=serialize($_POST['po11']);
+    $po12=serialize($_POST['po12']);
+    $pso1=serialize($_POST['pso1']);
+    $pso2=serialize($_POST['pso2']);
+    $pso3=serialize($_POST['pso3']);
+    $pso4=serialize($_POST['pso4']);
+   
+    $uid=$course_cd.$cay;
+    $p1=$_POST['po1'];
     $p2=$_POST['po2'];
     $p3=$_POST['po3'];
     $p4=$_POST['po4'];
@@ -22,24 +48,43 @@
     $ps3=$_POST['pso3'];
     $ps4=$_POST['pso4'];
 
+
+
+    $query="insert into copo (uid,course_cd,course_nm,staff_nm,dept,sem,cay,po1,po2,po3,po4,po5,po6,po7,po8,po9,po10,po11,po12,pso1,pso2,pso3,pso4) values ('$uid','$course_cd','$course_nm','$staff_nm','$dept','$sem','$cay','$po1','$po2','$po3','$po4','$po5','$po6','$po7','$po8','$po9','$po10','$po11','$po12','$pso1','$pso2','$pso3','$pso4');";
+
+   $entry=mysqli_query($conn,$query);
+
+
+  
+
+
+    
+  if(is_null($entry)){
+            echo 'Could not enter data: ';
+         }
+  // else{ 
+
+      
+    //   header("Location: http://localhost/Project/form.php");
+          
+      //} 
+
+  
+
+
  ?> 
 
-<div class="w3-sidebar w3-pale-green w3-bar-block" style="width:25%;">
-  <h1 class="w3-bar-item w3-teal">Menu</h1>
-  <a href="#" class="w3-bar-item w3-button">Link 1</a>
-  <a href="#" class="w3-bar-item w3-button">Link 2</a>
-  <a href="#" class="w3-bar-item w3-button">Link 3</a>
-</div>
+
 
 
 
 <!-- Page Content -->
-<div style="margin-left:25%">
 
+<div class=wrapp>
 <div class="w3-container w3-teal">
   <h1>Justification mapping</h1>
 </div>
-<form action="" method="post">
+<form action="just.php" method="post">
 <div class="w3-container">
 <table class="w3-table-all">
  <tr>
@@ -545,81 +590,18 @@
      </td></tr>
 
 </tr>
-  
+  <input type=hidden name=course_cd value=<?php echo $course_cd;?>>
+  <input type=hidden name=cay value=<?php echo $cay;?>>
 
 </table>
 </div>
 <div class="w3-container w3-teal">
     <h3>
-        <button class="w3-bar-item w3-button w3-right" type="submit">Submit</button>
+        <button class="w3-bar-item w3-button w3-right" type="submit" name="submit">Submit</button>
     </h3>
     
 </div>
 </form>
 </div>
-<?php
-    include 'conn.php';
-
-
-
-
-
-
-    $course_cd=htmlspecialchars($_POST['course_cd']);
-    $course_nm=htmlspecialchars($_POST['course_nm']);
-    $dept=htmlspecialchars($_POST['dept']);
-    $sem=htmlspecialchars($_POST['sem']);
-    $staff_nm=htmlspecialchars($_POST['staff_nm']);
-    $cay=htmlspecialchars($_POST['cay']);
-    $po1=serialize($_POST['po1']);
-    $po2=serialize($_POST['po2']);
-    $po3=serialize($_POST['po3']);
-    $po4=serialize($_POST['po4']);
-    $po5=serialize($_POST['po5']);
-    $po6=serialize($_POST['po6']);
-    $po7=serialize($_POST['po7']);
-    $po8=serialize($_POST['po8']);
-    $po9=serialize($_POST['po9']);
-    $po10=serialize($_POST['po10']);
-    $po11=serialize($_POST['po11']);
-    $po12=serialize($_POST['po12']);
-    $pso1=serialize($_POST['pso1']);
-    $pso2=serialize($_POST['pso2']);
-    $pso3=serialize($_POST['pso3']);
-    $pso4=serialize($_POST['pso4']);
-   
-    $uid=$course_cd.$cay;
-    $jc1=serialize($_POST['jc1']);
-    $jc2=serialize($_POST['jc2']);
-    $jc3=serialize($_POST['jc3']);
-    $jc4=serialize($_POST['jc4']);
-
-
-
-    $query="insert into copo (uid,course_cd,course_nm,staff_nm,dept,sem,cay,po1,po2,po3,po4,po5,po6,po7,po8,po9,po10,po11,po12,pso1,pso2,pso3,pso4,jc1,jc2,jc3,jc4) values ('$uid','$course_cd','$course_nm','$staff_nm','$dept','$sem','$cay','$po1','$po2','$po3','$po4','$po5','$po6','$po7','$po8','$po9','$po10','$po11','$po12','$pso1','$pso2','$pso3','$pso4','$jc1','$jc2','$jc3','$jc4');";
-
-   $entry=mysqli_query($conn,$query);
-
-
-  
-
-
-    
-  if(is_null($entry)){
-            echo 'Could not enter data: ';
-         }
-  //  else{ 
-
-      
-  //       header("Location: http://localhost/Project/form.php");
-          
-   //   } 
-
-  
-
-
-?>
-
- 
 </body>
 </html>
