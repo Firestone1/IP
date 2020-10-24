@@ -47,7 +47,7 @@
 
     $result=mysqli_query($conn,$query);
     if(!$result){
-     header("Location: http://localhost/copo/reports.php");
+     header("Location: http://yogeshpingle.co.in/copo/reports.php");
     }
     mysqli_close($conn);
 
@@ -243,7 +243,7 @@
    ;
     
   if(is_null($check)){
-    header("Location: http://localhost/Project/reports.php");
+    header("Location: http://yogeshpingle.co.in/copo/reports.php");
   }
 
  
