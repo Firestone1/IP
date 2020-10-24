@@ -27,7 +27,7 @@ if(is_null($e)){
     else{ 
 
       
-         header("Location: http://localhost/copo/form.php");
+         header("Location: http://yogeshpingle.co.in/copo/form.php");
           
        } 
 
