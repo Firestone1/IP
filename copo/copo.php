@@ -29,7 +29,7 @@
     
     $result=mysqli_query($conn,$query);
     if(!$result){
-    header("Location: http://localhost/copo/form.php");
+    header("Location: http://yogeshpingle.co.in/copo/form.php");
     }
     mysqli_close($conn);
 
