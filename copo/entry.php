@@ -136,6 +136,15 @@
          <tr>
             <th>PO12</th>
         </tr>
+        <tr>
+            <th>PSO1</th>
+        </tr>
+         <tr>
+            <th>PSO2</th>
+        </tr>
+         <tr>
+            <th>PSO3/th>
+        </tr>
      </table>
      </td>
      <td>
@@ -176,6 +185,15 @@
              <tr>
                 <th style="height:36px;"><?php echo $p12[0];?></th>
              </tr>
+             <tr>
+                 <th style="height:36px;"><?php echo $ps1[0];?></th>
+             </tr>
+             <tr>
+                 <th style="height:36px;"><?php echo $ps2[0];?></th>
+             </tr>
+             <tr>
+                <th style="height:36px;"><?php echo $ps3[0];?></th>
+             </tr>
          </table>
      </td>
      <td>
@@ -207,6 +225,15 @@
           <tr>
               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc1[]" value=""></td>
           </tr>   
+          <tr>
+              <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc1[]" value=""></td>
+          </tr>   
+          <tr>
+                <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc1[]" value=""></td>
+          </tr>   
+          <tr>
+               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc1[]" value=""></td>
+          </tr>
           <tr>
               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc1[]" value=""></td>
           </tr>   
@@ -260,6 +287,15 @@
          <tr>
             <th>PO12</th>
         </tr>
+        <tr>
+            <th>PSO1</th>
+        </tr>
+         <tr>
+            <th>PSO2</th>
+        </tr>
+         <tr>
+            <th>PSO3/th>
+        </tr>
      </table>
      </td>
      <td>
@@ -300,6 +336,15 @@
              <tr>
                 <th style="height:36px;"><?php echo $p12[1];?></th>
              </tr>
+             <tr>
+                 <th style="height:36px;"><?php echo $ps1[1];?></th>
+             </tr>
+             <tr>
+                 <th style="height:36px;"><?php echo $ps2[1];?></th>
+             </tr>
+             <tr>
+                <th style="height:36px;"><?php echo $ps3[1];?></th>
+             </tr>
          </table>
      </td>
      <td>
@@ -331,6 +376,15 @@
           <tr>
               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc2[]" value=""></td>
           </tr>   
+          <tr>
+              <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc2[]" value=""></td>
+          </tr>   
+          <tr>
+                <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc2[]" value=""></td>
+          </tr>   
+          <tr>
+               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc2[]" value=""></td>
+          </tr>
           <tr>
               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc2[]" value=""></td>
           </tr>   
@@ -383,6 +437,15 @@
          <tr>
             <th>PO12</th>
         </tr>
+        <tr>
+            <th>PSO1</th>
+        </tr>
+         <tr>
+            <th>PSO2</th>
+        </tr>
+         <tr>
+            <th>PSO3/th>
+        </tr>
      </table>
      </td>
      <td>
@@ -423,6 +486,15 @@
              <tr>
                 <th style="height:36px;"><?php echo $p12[2];?></th>
              </tr>
+             <tr>
+                 <th style="height:36px;"><?php echo $ps1[2];?></th>
+             </tr>
+             <tr>
+                 <th style="height:36px;"><?php echo $ps2[2];?></th>
+             </tr>
+             <tr>
+                <th style="height:36px;"><?php echo $ps3[2];?></th>
+             </tr>
          </table>
      </td>
      <td>
@@ -454,6 +526,15 @@
           <tr>
               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc3[]" value=""></td>
           </tr>   
+          <tr>
+              <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc3[]" value=""></td>
+          </tr>   
+          <tr>
+                <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc3[]" value=""></td>
+          </tr>   
+          <tr>
+               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc3[]" value=""></td>
+          </tr>
           <tr>
               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc3[]" value=""></td>
           </tr>   
@@ -506,6 +587,15 @@
          <tr>
             <th>PO12</th>
         </tr>
+        <tr>
+            <th>PSO1</th>
+        </tr>
+         <tr>
+            <th>PSO2</th>
+        </tr>
+         <tr>
+            <th>PSO3/th>
+        </tr>
      </table>
      </td>
      <td>
@@ -546,6 +636,15 @@
              <tr>
                 <th style="height:36px;"><?php echo $p12[3];?></th>
              </tr>
+             <tr>
+                 <th style="height:36px;"><?php echo $ps1[3];?></th>
+             </tr>
+             <tr>
+                 <th style="height:36px;"><?php echo $ps2[3];?></th>
+             </tr>
+             <tr>
+                <th style="height:36px;"><?php echo $ps3[3];?></th>
+             </tr>
          </table>
      </td>
      <td>
@@ -577,6 +676,15 @@
           <tr>
               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc4[]" value=""></td>
           </tr>   
+          <tr>
+              <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc4[]" value=""></td>
+          </tr>   
+          <tr>
+                <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc4[]" value=""></td>
+          </tr>   
+          <tr>
+               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc4[]" value=""></td>
+          </tr>
           <tr>
               <td style="padding:3px;"><input style="height:29px; width:100%; border:hidden;" type="text" name="jc4[]" value=""></td>
           </tr>   
